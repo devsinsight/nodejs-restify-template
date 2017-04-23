@@ -1,0 +1,24 @@
+{
+    "name": "jsservice",
+    "version": "1.0.0",
+    "description": "a service to evaluate js code",
+    "main": "index.js",
+    "scripts": {
+        "grunt": "grunt",
+        "start": "node ./dist/app"
+    },
+    "author": "Jose Luis Olivares Rojas",
+    "license": "ISC",
+    "dependencies": {
+        "@types/restify": "^2.0.42",
+        "restify": "^4.3.0",
+        "typescript": "^2.2.2"
+    },
+    "devDependencies": {
+        "grunt": "^1.0.1",
+        "grunt-contrib-copy": "^1.0.0",
+        "grunt-contrib-watch": "^1.0.0",
+        "grunt-ts": "^6.0.0-beta.15",
+        "typescript": "^2.2.2"
+    }
+}
