@@ -1,1 +1,0 @@
-app\app.ts app\config\config.ts app\config\inversify-container.ts app\controllers\sampleRouterController.ts app\routes\routesSample.ts app\services\logger.ts app\types\types.d.ts app\.baseDir.ts --emitDecoratorMetadata --removeComments --experimentalDecorators --target ES6 --module commonjs --outDir ./dist
