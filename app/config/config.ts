@@ -1,4 +1,4 @@
-import {Config} from '../types/types';
+import { Config } from '../types/types';
 
 let env = process.env.NODE_ENV || 'development';
 

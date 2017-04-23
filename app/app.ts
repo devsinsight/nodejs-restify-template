@@ -1,8 +1,11 @@
 import { settings } from './config/config';
 import { InversifyContainer } from './config/inversify-container';
+import { RestifyApiConfig } from "./config/restify-api-config";
 
-export let api = InversifyContainer({
+let configParams = {
   name: settings.name
-});
+}
+
+export let api = InversifyContainer(configParams, RestifyApiConfig);
 
 api.listen(settings.port)
