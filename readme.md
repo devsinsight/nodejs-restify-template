@@ -43,3 +43,6 @@ Production environment:
 ```sh
 $ npm run build:prod
 ```
+# Result
+
+http://localhost:3000/api/greetings
