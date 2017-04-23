@@ -1,4 +1,4 @@
-import { settings } from './config/config';
+import { settings } from './config/environment-config';
 import { InversifyContainer } from './config/inversify-container';
 import { RestifyApiConfig } from "./config/restify-api-config";
 
