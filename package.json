@@ -6,7 +6,7 @@
     "scripts": {
         "grunt": "grunt",
         "start": "nodemon ./dist/app.js | pino",
-        "watch": "concurrently --kill-others \"nodemon ./dist/app | pino\" \"grunt watch\"",
+        "watch": "grunt && nodemon ./dist/app | pino && grunt watch",
         "build:dev": "SET NODE_ENV=development && npm run grunt",
         "build:prod": "SET NODE_ENV=production && npm run grunt"
     },

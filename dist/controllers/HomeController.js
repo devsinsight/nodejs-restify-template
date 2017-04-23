@@ -8,15 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const restify = require("restify");
 const inversify_restify_utils_1 = require("inversify-restify-utils");
 const inversify_1 = require("inversify");
 let HomeController = class HomeController {
-    constructor() { }
+    constructor(commonService) {
+        this.commonService = commonService;
+    }
     greetings(req) {
         req.log.info();
-        return "hello developers developers developers!";
+        return this.commonService.greetings();
     }
 };
 __decorate([
@@ -28,6 +33,7 @@ __decorate([
 HomeController = __decorate([
     inversify_restify_utils_1.Controller('/api'),
     inversify_1.injectable(),
-    __metadata("design:paramtypes", [])
+    __param(0, inversify_1.inject('ICommonService')),
+    __metadata("design:paramtypes", [Object])
 ], HomeController);
 exports.HomeController = HomeController;

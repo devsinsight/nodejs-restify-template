@@ -5,9 +5,11 @@ const inversify_1 = require("inversify");
 require("reflect-metadata");
 const inversify_restify_utils_1 = require("inversify-restify-utils");
 const HomeController_1 = require("../controllers/HomeController");
+const common_service_1 = require("../services/common-service");
 function InversifyContainer(opts) {
     let container = new inversify_1.Container();
     container.bind(inversify_restify_utils_1.TYPE.Controller).to(HomeController_1.HomeController).whenTargetNamed('HomeController');
+    container.bind('ICommonService').to(common_service_1.CommonService);
     let server = new inversify_restify_utils_1.InversifyRestifyServer(container, opts);
     return server
         .setConfig((api) => {
