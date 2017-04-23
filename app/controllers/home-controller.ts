@@ -20,4 +20,14 @@ export class HomeController implements interfaces.Controller{
         let sampleModel = new SampleModel('Jose Luis', 'Olivares Rojas');
         return sampleModel;
     }
+
+    @Get('/printQueryParam')
+    private printQueryParam(req: restify.Request){
+        return req.query.name;
+    }
+
+    @Get('/printUrlParam/:foo')
+    private printUrlParam(req: restify.Request){
+        return req.params.foo;
+    }
 }
