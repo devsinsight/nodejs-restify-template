@@ -15,6 +15,7 @@ const inversify_1 = require("inversify");
 let HomeController = class HomeController {
     constructor() { }
     greetings(req) {
+        req.log.info();
         return "hello developers developers developers!";
     }
 };

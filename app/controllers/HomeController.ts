@@ -6,10 +6,11 @@ import { injectable, inject } from 'inversify';
 @injectable()
 export class HomeController implements interfaces.Controller{
 
-	constructor() {}
+	constructor( /* @inject('FooService') private fooService: FooService */) {}
     
     @Get('/greetings')
     private greetings(req: restify.Request): string {
+        req.log.info();
         return "hello developers developers developers!"
     }
 }
