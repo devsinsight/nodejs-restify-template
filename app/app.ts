@@ -1,9 +1,11 @@
 import * as fs from 'fs';
 import * as restify from 'restify';
 import { settings } from './config/config';
-import { logger } from './services/logger';
+import { InversifyContainer } from './config/inversify-container';
 
-export let api = restify.createServer({
+let logger = require('restify-logger');
+
+export let api = InversifyContainer({
   name: settings.name
 });
 
@@ -15,15 +17,10 @@ api.use(restify.bodyParser());
 api.use(restify.queryParser());
 api.use(restify.authorizationParser());
 api.use(restify.fullResponse());
-
-
-fs.readdirSync(__dirname + '/routes').forEach(function (routeConfig: string) {
-  if (routeConfig.substr(-3) === '.js') {
-    let route = require(__dirname + '/routes/' + routeConfig);
-    route.routes(api);
+api.use(logger('custom', {
+  skip: function (req) {
+    return process.env.NODE_ENV === "test" || req.method === "OPTIONS" || req.url === "/status";
   }
-});
+}));
 
-api.listen(settings.port, function () {
-  logger.info(`INFO: ${settings.name} is running at ${api.url}`);
-});
+api.listen(settings.port)

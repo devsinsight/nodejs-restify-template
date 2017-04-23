@@ -13,13 +13,22 @@ module.exports = function(grunt) {
                 options: {
                     module: "commonjs",
                     target: "es6",
-                    sourceMap: false
+                    sourceMap: false,
+                    emitDecoratorMetadata: true,
+                    experimentalDecorators: true
                 }
             }
         },
         watch: {
             ts: {
                 files: [rootFolder + "/\*\*/\*.ts"],
+                options: {
+                    module: "commonjs",
+                    target: "es6",
+                    sourceMap: false,
+                    emitDecoratorMetadata: true,
+                    experimentalDecorators: true
+                },
                 tasks: ["ts"]
             }
         }
