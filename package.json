@@ -1,24 +1,30 @@
 {
-    "name": "jsservice",
-    "version": "1.0.0",
-    "description": "a service to evaluate js code",
-    "main": "index.js",
-    "scripts": {
-        "grunt": "grunt",
-        "start": "node ./dist/app"
-    },
-    "author": "Jose Luis Olivares Rojas",
-    "license": "ISC",
-    "dependencies": {
-        "@types/restify": "^2.0.42",
-        "restify": "^4.3.0",
-        "typescript": "^2.2.2"
-    },
-    "devDependencies": {
-        "grunt": "^1.0.1",
-        "grunt-contrib-copy": "^1.0.0",
-        "grunt-contrib-watch": "^1.0.0",
-        "grunt-ts": "^6.0.0-beta.15",
-        "typescript": "^2.2.2"
-    }
+  "name": "jsservice",
+  "version": "1.0.0",
+  "description": "a service to evaluate js code",
+  "main": "index.js",
+  "scripts": {
+    "grunt": "grunt",
+    "start": "node ./dist/app",
+    "watch": "concurrently --kill-others \"nodemon ./dist/app\" \"grunt watch\""
+  },
+  "author": "Jose Luis Olivares Rojas",
+  "license": "ISC",
+  "dependencies": {
+    "@types/restify": "^2.0.42",
+    "inversify": "^3.3.0",
+    "inversify-restify-utils": "^3.2.0",
+    "reflect-metadata": "^0.1.10",
+    "restify": "^4.3.0",
+    "typescript": "^2.2.2"
+  },
+  "devDependencies": {
+    "concurrently": "^3.4.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-ts": "^6.0.0-beta.15",
+    "nodemon": "^1.11.0",
+    "typescript": "^2.2.2"
+  }
 }
